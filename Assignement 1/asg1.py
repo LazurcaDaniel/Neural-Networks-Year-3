@@ -1,3 +1,5 @@
+import copy
+
 def readFromFile(filename):
     """
     This function will read a system of linear  equations from a text file
@@ -37,9 +39,9 @@ def determinant(A):
     """
     This function will return the determinant of a matrix
     """
-    l1 = A[1][1] * (A[2][2] * A[3][3] - A[2][3] * A[3][2])
-    l2 = A[1][2] * (A[2][1] * A[3][3] - A[2][3] * A[3][1])
-    l3 = A[1][3] * (A[2][1] * A[3][2] - A[2][2] * A[3][1])
+    l1 = A[0][0] * (A[1][1] * A[2][2] - A[1][2] * A[2][1])
+    l2 = A[0][1] * (A[1][0] * A[2][2] - A[1][2] * A[2][0])
+    l3 = A[0][2] * (A[1][0] * A[2][1] - A[1][1] * A[2][0])
     return l1 - l2 + l3
 
 def trace(A):
@@ -78,8 +80,29 @@ def multiply_with_vector(A,B):
         result.append(el)
     return result
 
+def determinant_Ai(A, B, variable):
+    """
+    This function will return the determinant of Ax, Ay or Az, depending on variable value
+    0 for x
+    1 for y
+    2 for z
+    """
+    A_copy = copy.deepcopy(A)
+    for i in range(len(A)):
+        A_copy[i][variable] = B[i]
 
+    return determinant(A_copy)/determinant(A)
+
+
+def Cramer(A, B):
+    """
+    This function will solve a system of polynomials usign Cramer's Rule
+    """
+    x = determinant_Ai(A,B,0)
+    y = determinant_Ai(A,B,1)
+    z = determinant_Ai(A,B,2)
+    return (x,y,z)
 
 
 (A,B) = readFromFile('test.txt')
-print(multiply_with_vector(A,B))
+print(Cramer(A,B))

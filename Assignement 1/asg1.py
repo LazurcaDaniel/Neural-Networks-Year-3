@@ -37,24 +37,33 @@ def readFromFile(filename):
                 
 def determinant(A):
     """
-    This function will return the determinant of a matrix
+    This function will return the determinant of a matrix of degree 3
     """
     l1 = A[0][0] * (A[1][1] * A[2][2] - A[1][2] * A[2][1])
     l2 = A[0][1] * (A[1][0] * A[2][2] - A[1][2] * A[2][0])
     l3 = A[0][2] * (A[1][0] * A[2][1] - A[1][1] * A[2][0])
     return l1 - l2 + l3
 
+def determinant_2(A):
+    """
+    This function will return the determinant of a matrix of degree 2
+    """
+    l1 = A[0][0] * A[1][1]
+    l2 = A[1][0] * A[0][1]
+    return l1-l2
+
+
 def trace(A):
     """
     This function will return the trace of a matrix
     """
-    return A[1][1] + A[2][2] + A[3][3]
+    return A[0][0] + A[1][1] + A[2][2]
 
 def vector_norm(B):
     """
     This function will return the norm of a vector
     """
-    return (B[1]*B[1] + B[2]*B[2] + B[3]*B[3])**0.5
+    return (B[0]*B[0] + B[1]*B[1] + B[2]*B[2])**0.5
 
 def transpose(A):
     """
@@ -91,18 +100,51 @@ def determinant_Ai(A, B, variable):
     for i in range(len(A)):
         A_copy[i][variable] = B[i]
 
-    return determinant(A_copy)/determinant(A)
+    return determinant(A_copy)
 
 
 def Cramer(A, B):
     """
     This function will solve a system of polynomials usign Cramer's Rule
     """
-    x = determinant_Ai(A,B,0)
-    y = determinant_Ai(A,B,1)
-    z = determinant_Ai(A,B,2)
+    x = determinant_Ai(A,B,0)/determinant(A)
+    y = determinant_Ai(A,B,1)/determinant(A)
+    z = determinant_Ai(A,B,2)/determinant(A)
     return (x,y,z)
 
+def cofactor(A):
+    """
+    This function will return the cofactor matrix of matrix A
+    """
+    cof = []
+    print(A)
+    for i in range(len(A)):
+        line_i = []
+        for j in range(len(A[i])):
+            M = []
+            for k in range(len(A)):
+                new_line = []
+                if k != i:
+                    for l in range(len(A[k])):
+                        if l != j:
+                            new_line.append(A[k][l])
+                    M.append(new_line)
+            line_i.append(((-1)**(i+j)) * determinant_2(M))
+            
+        cof.append(line_i)
+    return cof
+
+def inverse_matrix(A):
+    """
+    This function will return A^-1, using the adjucate method
+    """
+    A1 = transpose(cofactor(A))
+    inverse = 1/determinant(A)
+    for i in range(len(A)):
+        for j in range(len(A[i])):
+            A1[i][j] = inverse * A1[i][j]
+    return A1
 
 (A,B) = readFromFile('test.txt')
 print(Cramer(A,B))
+print(multiply_with_vector(inverse_matrix(A),B))

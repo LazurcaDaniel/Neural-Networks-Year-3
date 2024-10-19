@@ -1,0 +1,7 @@
+[[nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ ...
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]][nan nan nan nan nan nan nan nan nan nan][90.2  88.65 89.68 89.9  90.18 91.08 90.42 89.72 90.26 89.91]

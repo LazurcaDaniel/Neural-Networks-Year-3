@@ -117,7 +117,6 @@ def cofactor(A):
     This function will return the cofactor matrix of matrix A
     """
     cof = []
-    print(A)
     for i in range(len(A)):
         line_i = []
         for j in range(len(A[i])):
@@ -145,6 +144,6 @@ def inverse_matrix(A):
             A1[i][j] = inverse * A1[i][j]
     return A1
 
-(A,B) = readFromFile('test.txt')
+(A,B) = readFromFile(r'C:\Users\Daniel\Desktop\RN\Assignement 1\test.txt')
 print(Cramer(A,B))
 print(multiply_with_vector(inverse_matrix(A),B))

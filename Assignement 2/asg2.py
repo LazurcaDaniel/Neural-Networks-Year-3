@@ -2,6 +2,8 @@ import numpy as np
 from torchvision.datasets import MNIST
 from timed_decorator.simple_timed import timed
 
+
+
 def download_mnist(is_train: bool):
     dataset = MNIST(root='./data',
                     transform = lambda x: np.array(x).flatten() / 255.0,
@@ -44,17 +46,16 @@ def process_batch(batch_x, batch_y, W_batch, Bias_batch, alpha=0.01):
 def perceptron(train_X, train_Y, alpha = 0.01):
     W = np.random.rand(10,784) * 0.01
     Bias = np.random.rand(10)   
-    
-
-    for epoch in range(500):
+    error_rate = 0.94
+    batch_size = 100
+    num_batches = len(train_X) // batch_size  # Calculate the number of full batches
+    data_batches = np.array(np.array_split(train_X[:num_batches * batch_size], num_batches))
+    label_batches = np.array(np.array_split(train_Y[:num_batches * batch_size], num_batches))
+    for epoch in range(300):
         print(f'Epoch {epoch + 1}')
-        batch_size = 100
-        num_batches = len(train_X) // batch_size  # Calculate the number of full batches
-        data_batches = np.array(np.array_split(train_X[:num_batches * batch_size], num_batches))
-        label_batches = np.array(np.array_split(train_Y[:num_batches * batch_size], num_batches))
         for x,y in zip(data_batches, label_batches):
             W, Bias = process_batch(x, y, W, Bias, alpha)
-        
+        alpha *= error_rate
     return W, Bias
     
 def predict(X,W,Bias):

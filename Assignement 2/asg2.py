@@ -34,7 +34,7 @@ def process_batch(batch_x, batch_y, W_batch, Bias_batch, alpha=0.01):
     
     exp_sum = np.exp(w_sum)
     output = exp_sum / np.sum(exp_sum, axis=0)  
- 
+
     gradient = output - batch_y.T  
 
     W_batch += alpha * gradient @ batch_x 

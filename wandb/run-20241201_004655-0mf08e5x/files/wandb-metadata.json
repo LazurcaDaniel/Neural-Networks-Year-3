@@ -1,0 +1,43 @@
+{
+  "os":  "Windows-11-10.0.22631-SP0",
+  "python":  "3.12.7",
+  "startedAt":  "2024-11-30T22:46:55.973432Z",
+  "program":  "c:\\Users\\Daniel\\Desktop\\RN\\Assignement 4\\asg4.py",
+  "codePath":  "Assignement 4\\asg4.py",
+  "git":  {
+    "remote":  "https://github.com/LazurcaDaniel/Neural-Networks-Year-3.git",
+    "commit":  "91d329a36eb53c4ca97414fbd094076d18cd29de"
+  },
+  "email":  "daniellazurca51@gmail.com",
+  "root":  "C:\\Users\\Daniel\\Desktop\\RN",
+  "host":  "DESKTOP-1F1MV34",
+  "username":  "Daniel",
+  "executable":  "C:\\Users\\Daniel\\.conda\\envs\\312\\python.exe",
+  "codePathLocal":  "Assignement 4\\asg4.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "1023307411456",
+      "used":  "561215401984"
+    }
+  },
+  "memory":  {
+    "total":  "16557899776"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  16
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+      "memoryTotal":  "4294967296",
+      "cudaCores":  2560,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.3"
+}

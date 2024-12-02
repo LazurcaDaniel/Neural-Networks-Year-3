@@ -28,10 +28,10 @@ def relu(x):
     return np.maximum(0, x)
 
 def softmax_cross_entropy_loss(z2, Y):
-    z2_shifted = z2 - np.max(z2, axis=1, keepdims=True) #shifting so that we don't get overflow with values 
+    z2_shifted = z2 - np.max(z2, axis=1, keepdims=True) 
     exp_z2 = np.exp(z2_shifted) #e^z
-    softmax_output = exp_z2 / np.sum(exp_z2, axis=1, keepdims=True) #e^z / sum(e^z) - softmax
-    loss = -np.sum(Y * np.log(softmax_output + 1e-8)) / Y.shape[0] #Cost function: -1/N * sum(expected_values * softmax(computed_values))
+    softmax_output = exp_z2 / np.sum(exp_z2, axis=1, keepdims=True) 
+    loss = -np.sum(Y * np.log(softmax_output + 1e-8)) / Y.shape[0] 
 
     return loss, softmax_output
 
@@ -39,19 +39,19 @@ def dropout(X, drop_prob):
     """Apply dropout to the input data X."""
     if drop_prob < 0.0 or drop_prob >= 1.0:
         raise ValueError("drop_prob must be in the range [0, 1)")
-    mask = (np.random.rand(*X.shape) > drop_prob).astype(np.float32) #creating a matrix of shape X with random values. Values < drop_prob -> 0, values > drop_prob -> 1
-    return mask * X / (1.0 - drop_prob) #dividing to increase the values in the Neurons because they would be smaller than normal and mess with learning 
+    mask = (np.random.rand(*X.shape) > drop_prob).astype(np.float32) 
+    return mask * X / (1.0 - drop_prob) 
 
 def forward_propagation(X, Y, drop_prob=0.01, train=True):
     global W1, B1, W2, B2
-    z1 = X @ W1 + B1 #values for hidden layer
-    h = relu(z1) #relu(values for hidden layer)
+    z1 = X @ W1 + B1 
+    h = relu(z1) 
 
     if train:
-        h = dropout(h, drop_prob) #applying dropout
+        h = dropout(h, drop_prob) 
 
-    z2 = h @ W2 + B2 #values for output layer
-    loss, out = softmax_cross_entropy_loss(z2, Y) #loss, computed_values(softmax(z2))
+    z2 = h @ W2 + B2 
+    loss, out = softmax_cross_entropy_loss(z2, Y) 
     return z1, h, z2, out, loss
 
 def backwards_propagation(X, Y, z1, h, out, alpha=0.01):

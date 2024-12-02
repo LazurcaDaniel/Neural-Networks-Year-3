@@ -1,0 +1,17 @@
+{"time":"2024-12-01T00:35:19.7875359+02:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-01T00:35:19.7875359+02:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\Daniel\\Desktop\\RN\\wandb\\run-20241201_003519-tfhntvga\\logs\\debug-core.log"}
+{"time":"2024-12-01T00:35:20.0626215+02:00","level":"INFO","msg":"created new stream","id":"tfhntvga"}
+{"time":"2024-12-01T00:35:20.0626215+02:00","level":"INFO","msg":"stream: started","id":"tfhntvga"}
+{"time":"2024-12-01T00:35:20.0626215+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"tfhntvga"}
+{"time":"2024-12-01T00:35:20.0626215+02:00","level":"INFO","msg":"handler: started","stream_id":"tfhntvga"}
+{"time":"2024-12-01T00:35:20.0626215+02:00","level":"INFO","msg":"sender: started","stream_id":"tfhntvga"}
+{"time":"2024-12-01T00:35:20.3961063+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-01T00:39:05.7286176+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-01T00:39:05.7291912+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-01T00:39:06.7298052+02:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"saving job artifact","runtime_seconds":0.4478856},{"desc":"uploading config.yaml","runtime_seconds":0.2397214,"progress":"696B/696B"},{"desc":"uploading output.log","runtime_seconds":0.2397214,"progress":"364B/364B"}],"total_operations":3}}
+{"time":"2024-12-01T00:39:08.9405248+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-01T00:39:10.179255+02:00","level":"INFO","msg":"stream: closing","id":"tfhntvga"}
+{"time":"2024-12-01T00:39:10.179255+02:00","level":"INFO","msg":"handler: closed","stream_id":"tfhntvga"}
+{"time":"2024-12-01T00:39:10.179255+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tfhntvga"}
+{"time":"2024-12-01T00:39:10.179255+02:00","level":"INFO","msg":"sender: closed","stream_id":"tfhntvga"}
+{"time":"2024-12-01T00:39:10.179255+02:00","level":"INFO","msg":"stream: closed","id":"tfhntvga"}
